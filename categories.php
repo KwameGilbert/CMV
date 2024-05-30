@@ -1,9 +1,7 @@
 <?php
 $event_id = $_GET['event_id']; // Get the event ID from the URL
-
 // Database connection
 include 'database/db_connect.php';
-
 //Fetch event name from based on event idate
 $event_sql = "SELECT event_name FROM events WHERE event_id = ?";
 $event_stmt = $conn->prepare($event_sql);
@@ -11,7 +9,6 @@ $event_stmt->bind_param('i', $event_id);
 $event_stmt->execute();
 $event_result = $event_stmt->get_result();
 $event = $event_result->fetch_assoc();
-
 // Fetch categories based on event
 $sql = "SELECT * FROM categories WHERE event_id = ?";
 $stmt = $conn->prepare($sql);
@@ -19,7 +16,6 @@ $stmt->bind_param('i', $event_id);
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,12 +26,10 @@ $result = $stmt->get_result();
     <link rel="stylesheet" href="styles/banner.css">
     <link rel="stylesheet" href="styles/event & categories.css">
     <link rel="stylesheet" href="styles/footer.css">
-
 </head>
 <body>
 <?php include 'header.php' ?> 
 <?php include 'banner.html' ?>
-
     <div class="container">
     <a href="index.php" class="back-button">Back</a>
         <h1 class="header-title">Select a Category</h1>
@@ -47,7 +41,6 @@ $result = $stmt->get_result();
             $categoryImage = 'includes/images/category_images/' . $row['category_name'] . '.jpg';
             // Path to event image
             $eventImage = 'includes/images/event_images/' . $event['event_name'] . '.jpg';
-
             // Check if category image exists, if not use event image
             if (!file_exists($categoryImage)) {
                 $categoryImage = $eventImage;
@@ -65,7 +58,6 @@ $result = $stmt->get_result();
 <?php include 'footer.php' ?>
 </body>
 </html>
-
 <?php
 $conn->close();
 ?>

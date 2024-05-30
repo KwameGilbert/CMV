@@ -1,17 +1,14 @@
 <?php
 $category_id = $_GET['category_id'];
 $event_id = $_GET['event_id'];
-
 // Database connection
 include 'database/db_connect.php';
-
 // Fetch contestants based on category
 $sql = "SELECT * FROM contestants WHERE category_id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('i', $category_id);
 $stmt->execute();
 $contestants_result = $stmt->get_result(); // Use a different variable to store contestants result
-
 // Fetch category name based on category id passed
 $sql = "SELECT category_name FROM categories WHERE category_id = ?";
 $stmt = $conn->prepare($sql);
@@ -19,7 +16,6 @@ $stmt->bind_param('i', $category_id);
 $stmt->execute();
 $category_result = $stmt->get_result(); // Use a different variable to store category result
 $category_row = $category_result->fetch_assoc(); // Fetch the category name into a new variable
-
 // Fetch event name from based on event idate
 $event_sql = "SELECT event_name FROM events WHERE event_id = ?";
 $event_stmt = $conn->prepare($event_sql);
@@ -28,10 +24,8 @@ $event_stmt->execute();
 $event_result = $event_stmt->get_result();
 $event = $event_result->fetch_assoc();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,7 +36,6 @@ $event = $event_result->fetch_assoc();
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/modal.css">
 </head>
-
 <body>
     <?php include 'header.php'; ?>
     <?php include 'banner.html'; ?>
@@ -64,7 +57,6 @@ $event = $event_result->fetch_assoc();
             $categoryImage = 'includes/images/category_images/' . $category_row['category_name'] . '.jpg';
             // Path to event image
             $eventImage = 'includes/images/event_images/' . $event['event_name'] . '.jpg';
-
             // Check if category image exists, if not use event image
             if (!file_exists($contestantImage)) {
                 $contestantImage = $categoryImage;
@@ -84,7 +76,6 @@ $event = $event_result->fetch_assoc();
             <?php endwhile; ?>
         </div>
     </div>
-
     <div id="results-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -103,12 +94,10 @@ $event = $event_result->fetch_assoc();
             </table>
         </div>
     </div>
-
     <?php include 'footer.php'; ?>
     <script src="js/modal.js"></script>
 </body>
 </html>
-
 <?php
 $stmt->close();
 $conn->close();

@@ -2,7 +2,8 @@ document.getElementById('paymentForm').addEventListener('submit', payWithPaystac
 
 function payWithPaystack(event) {
     event.preventDefault();
-
+    let first_name = document.getElementById('first_name').value;
+    let last_name = document.getElementById('last_name').value;
     let votes_amount = document.getElementById('amount').innerText;
     let votes_amount_float = parseFloat(votes_amount);
     let email = document.getElementById('email').value;
@@ -10,16 +11,18 @@ function payWithPaystack(event) {
 
     let handler = PaystackPop.setup({
         //Replace with your public key
-        key: 'pk_live_04349580eea795597762b0e6242736891e6a0faa',
-        //key: 'pk_test_3a243aa0a24572b40ef92531641e5809cd500d3b',
+        //key: 'pk_live_04349580eea795597762b0e6242736891e6a0faa',
+        key: 'pk_test_3a243aa0a24572b40ef92531641e5809cd500d3b',
         email: email,
+        first_name: first_name,
+        last_name: last_name,
         amount: amount,
         currency: 'GHS',
-    //split_code: 'SPL_ckaKku9FKI', //FADSA Split code
+        split_code: 'SPL_ckaKku9FKI', //FADSA Split code
         ref: 'Gili' + Math.floor((Math.random() * 1000000000) + 1), // Generate a unique reference
 
         onClose: function () {
-            alert('Payment window closed.');
+            alert('Payment cancelled.');
         },
 
         callback: function (response) {

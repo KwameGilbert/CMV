@@ -1,7 +1,6 @@
 *{
 padding: auto;
 }
-
 /* Header Styles */
 header {
     display: flex;
@@ -17,30 +16,25 @@ header {
     box-shadow: 0 4px 2px -2px #ffa500;
     z-index: 1000; /* Ensure it stays on top of other content */
 }
-
 .logo{
     margin: auto 0 auto 12px;
     display: flex;
 }
-
 .logo img {
    height: 50px;/* Make the image take the full height of the header */
     max-height: 30%; /* Ensure the logo does not exceed the header height */
 }
-
 .logo h2{
     font-size: 30px;
     margin: 0px;
     color: #ffa500;
 }
-
 .menu-button {
     font-size: 32px; /* Larger menu button */
     cursor: pointer;
     display: block;
     margin-right: 20px;
 }
-
 nav {
     display: flex;
     flex-direction: column;
@@ -53,7 +47,6 @@ nav {
     transition: right 0.4s;
     z-index: 1000;
 }
-
 nav a {
     color: #fff;
     text-decoration: none;
@@ -62,25 +55,20 @@ nav a {
     text-align: center;
     font-size: 18px; /* Larger nav text */
 }
-
 nav a:hover {
     background-color: #ffa600c2; /* Slightly lighter blue on hover */
 }
-
 .close-button {
     text-align: right;
     padding: 15px;
     cursor: pointer;
     font-size: 30px; /* Larger close button */
 }
-
-
 /* Desktop Styles */
 @media (min-width: 600px) {
     .menu-button {
         display: none;
     }
-
     nav {
         display: flex;
         flex-direction: row;
@@ -94,17 +82,14 @@ nav a:hover {
         margin-left: auto;
         margin-right: 20px;
     }
-
     nav a {
         border: none;
         padding: 10px 20px;
     }
-
     header {
         flex-direction: row;
         justify-content: space-between;
     }
-
     .close-button {
         display: none; /* Hide close button on larger screens */
     }

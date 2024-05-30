@@ -7,12 +7,11 @@
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/tnc.css">
     <link rel="stylesheet" href="styles/footer.css">
-
 </head>
 <body>
     <?php include 'header.php' ?>
     <?php include 'terms_conditions.html' ?>
     <?php include 'footer.php' ?>
-    <script src="js/header.js"></script>
+    <script src="<?php echo $domain ?>js/header.js"></script>
 </body>
 </html>

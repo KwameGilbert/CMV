@@ -15,7 +15,6 @@ $stmt->execute();
 $result = $stmt->get_result();
 $contestant = $result->fetch_assoc();
 
-
 //Fetch cost per vote
 $event_sql = "SELECT cost_per_vote FROM events WHERE event_id = (SELECT event_id FROM categories WHERE category_id = (SELECT category_id FROM contestants WHERE contestant_id = ?))";
 $event_stmt = $conn->prepare($event_sql);
@@ -24,11 +23,11 @@ $event_stmt->execute();
 $event_result = $event_stmt->get_result();
 $event = $event_result->fetch_assoc();
 $cost_per_vote = $event['cost_per_vote'];
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,19 +36,22 @@ $cost_per_vote = $event['cost_per_vote'];
     <link rel="stylesheet" href="styles/vote.css">
     <link rel="stylesheet" href="styles/footer.css">
 </head>
+
 <body>
     <?php include 'header.php' ?>
+
     <div class="container">
-        
+
         <div class="contestant-details">
             <h3>Vote for <?= htmlspecialchars($contestant['contestant_name']) ?></h3>
-            <img src="includes/images/contestant_images/<?= htmlspecialchars($contestant['contestant_name']) ?>.jpg" alt="<?= htmlspecialchars($contestant['contestant_name']) ?>" class="contestant-img">
+            <img src="includes/images/contestant_images/<?= htmlspecialchars($contestant['contestant_name']) ?>.jpg"
+                alt="<?= htmlspecialchars($contestant['contestant_name']) ?>" class="contestant-img">
             <div class="contestant-info">
                 <h2><?= htmlspecialchars($contestant['contestant_name']) ?></h2>
                 <p>Category: <?= htmlspecialchars($contestant['category_name']) ?></p>
             </div>
         </div>
-       
+
         <form class="vote-form" id="paymentForm">
             <h2>Please fill vote form</h2>
             <input type="hidden" name="contestant_id" value="<?= htmlspecialchars($contestant_id) ?>">
@@ -67,7 +69,8 @@ $cost_per_vote = $event['cost_per_vote'];
             </div>
             <div class="form-group">
                 <label for="votes">Number of Votes (₵<?php echo $cost_per_vote?> per vote):</label>
-                <input type="number" id="votes" name="votes" min="1" required oninput="calculateTotal(<?php echo $cost_per_vote?>)">
+                <input type="number" id="votes" name="votes" min="1" required
+                    oninput="calculateTotal(<?php echo $cost_per_vote?>)">
             </div>
             <div class="form-submit">
                 <h3>Total Amount: GH₵<span id="amount">0</span></h3>
@@ -95,14 +98,15 @@ $cost_per_vote = $event['cost_per_vote'];
     <div id="transaction_error_notification" class="transaction_error_notification">
         Transaction verification failed. Please contact support.
     </div>
-  
+
     <script src="https://js.paystack.co/v1/inline.js"></script>
     <script src="js/payment.js"></script>
-
     <?php
     $stmt->close();
     $conn->close();
     ?>
     <?php include 'footer.php' ?>
+
 </body>
+
 </html>

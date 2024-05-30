@@ -1,21 +1,17 @@
 <?php
 // Database connection
 include 'database/db_connect.php';
-
 // Fetch voting events
 $sql = "SELECT * FROM events ORDER BY event_date DESC";
 $result = $conn->query($sql);
-
 // Store fetched events in an array
 $events = [];
 while ($row = $result->fetch_assoc()) {
     $events[] = $row;
 }
-
 // Close database connection
 $conn->close();
 ?>
-
     <div class="container">
         <h1 class="header-title">Events</h1>
         <div class="search-container">
@@ -36,12 +32,10 @@ $conn->close();
             <?php endforeach; ?>
         </div>
     </div>
-
     <script>
         document.getElementById('search-input').addEventListener('input', function() {
             var searchQuery = this.value.toLowerCase();
             var eventCards = document.querySelectorAll('.card');
-
             eventCards.forEach(function(card) {
                 var eventName = card.getAttribute('data-event-name').toLowerCase();
                 if (eventName.includes(searchQuery)) {

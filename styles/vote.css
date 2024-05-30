@@ -4,7 +4,6 @@ body {
     margin: 20px auto;
     padding: 0;
 }
-
 .container {
     width: 70%;
     max-width: 90%; /* Adjusted to accommodate the image and form side by side */
@@ -18,12 +17,10 @@ body {
     align-items: center;
     justify-content: space-evenly;
 }
-
 .header {
     text-align: center;
     margin-bottom: 20px;
 }
-
 .contestant-details {
     display: flex;
     flex-direction: column;
@@ -32,12 +29,10 @@ body {
     opacity: 0;
     animation: fly-in 1s forwards ease-in-out;
 }
-
 .contestant-details h3 {
     text-align: center;
     margin: 0 auto;/
 }
-
 .contestant-img {
     /*width: 100%;*/
     width: 200px;
@@ -45,12 +40,10 @@ body {
     border-radius: 10px;
     margin: 10px auto;
 }
-
 .contestant-info {
     text-align: center;
     margin: 10px auto;
 }
-
 .vote-form {
     display: flex;
     flex-direction: column;
@@ -58,17 +51,14 @@ body {
     max-width: 500px;
     margin: 20px;
 }
-
 .form-group {
     margin-bottom: 15px;
 }
-
 label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
-
 input[type="text"],
 input[type="email"],
 input[type="number"] {
@@ -79,51 +69,49 @@ input[type="number"] {
     box-sizing: border-box;
     font-size: 1rem;
 }
-
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="number"]:focus {
-    border-color: #3bb75e;
+    border-color: #ffa500;
     outline: none;
 }
-
 .btn {
     padding: 10px 15px;
-    background-color: #3bb75e;
-    color: #fff;
+    background-color: #222;
+    color: #ffa500;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
     margin-top: 10px;
 }
-
 .btn:hover {
-    background-color: #24b14c;
+    background-color: #333;
 }
-
 .form-group p {
     font-size: 1.25rem;
     font-weight: bold;
     margin: 10px 0;
 }
-
 #totalAmount {
     color: #007BFF;
 }
-
 .good_notification, .bad_notification,  .database_error_notification, .transaction_error_notification {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transform-origin: center;
+        color: white;
+        padding: 30px;
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);  
+        font-size: 1.2em;
+        opacity: 1;
+    }
 .good_notification {
     background-color: #4CAF50;
 }
@@ -136,43 +124,35 @@ input[type="number"]:focus {
 .transaction_error_notification {
     background-color: #2196F3;
 }
-
-
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
         align-items: center;
     }
-
     .contestant-details {
         margin-bottom: 20px;
     }
 }
-
 @media (min-width: 769px) {
     .container {
         flex-direction: row;
         justify-content: space-evenly;
         align-items: flex-start;
     }
-
     .contestant-details {
         flex-direction: column;
         align-items: flex-start;
     }
 }
-
 @media (max-width: 600px) {
     .container {
         width: 95%;
         padding: 15px;
     }
-
     .header {
         font-size: 1.5rem;
     }
 }
-
 @keyframes fly-in {
     from {
         transform: translateX(-100%);

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../database/db_connect.php';
+include '../../database/db_connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username_email = $_POST['username_email'];
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $host = $result->fetch_assoc();
         $_SESSION['host_id'] = $host['id'];
         $_SESSION['event_id'] = $host['event_id'];
-        header("Location: dashboard.php");
+        header("Location: ../index.php");
     } else {
         echo "Invalid credentials. Please try again.";
     }

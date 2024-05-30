@@ -9,11 +9,12 @@
         <div class="footer-pages">
             <h3>Other Pages</h3>
             <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="events.php">Events</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="tnc.php">Terms and Conditions</a></li>
+                <li><a href="<?php echo $domain ?>index.php">Home</a></li>
+                <li><a href="<?php echo $domain ?>host">Host</a></li>
+                <li><a href="<?php echo $domain ?>events.php">Events</a></li>
+                <li><a href="<?php echo $domain ?>about.html">About Us</a></li>
+                <li><a href="<?php echo $domain ?>contact_us.php">Contact Us</a></li>
+                <li><a href="<?php echo $domain ?>tnc.php">Terms and Conditions</a></li>
             </ul>
         </div>
         <div class="footer-contact">
@@ -24,10 +25,6 @@
                      +233541436414
                 </a><br>
                 <a target="_blank" href="wa.me/+233541436414">+233501045463</a><br><br>
-
-             
-
-              
             </p>
             <p>
                 <strong>Email:</strong><br>
@@ -35,7 +32,6 @@
                     kwamegilbert1114@gmail.com
                 </a>
                 <br>
-
             </p>
             <p>
                 <strong>Address:</strong><br>

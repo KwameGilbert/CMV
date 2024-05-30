@@ -1,11 +1,5 @@
 <?php
 session_start();
-
-if (!isset($_SESSION['host_id'])) {
-    header("Location: ./sign-in/");
-    exit;
-}
-
 include '../database/db_connect.php';
 
 // Assume host ID is stored in session after login
@@ -128,14 +122,16 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Host Dashboard</title>
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
     <link rel="stylesheet" href="../styles/header.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <?php include '../header.php'; ?>
     <br>
@@ -147,7 +143,8 @@ $conn->close();
             <p><b>Categories:</b><?= $event['num_categories']; ?></p>
             <p><b>Contestants:</b><?= $event['num_contestants']; ?></p>
         </div>
-        <?php endforeach; ?>        
+        <?php endforeach; ?>
+        
         <div class="stats">
             <div class="stat">
                 <h4>Votes Today</h4>
@@ -197,13 +194,10 @@ $conn->close();
                     </tbody>
                 </table>
             </div>
-            <?php endforeach; ?> 
-            <a href="logout.php">
-                <button class="logout-button">Logout</button>
-            </a>
-        </div> 
+            <?php endforeach; ?>
+        </div>
     </div>
-   
+
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         var ctx = document.getElementById('votesChart').getContext('2d');

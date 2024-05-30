@@ -4,8 +4,6 @@ body {
     font-family: Arial, sans-serif;
     overflow-x: hidden; /* Prevent horizontal scroll */
 }
-
-
 .banner {
     position: relative;
     background-image: url("../includes/images/banner.svg"); /* Replace with your image path */
@@ -15,7 +13,6 @@ body {
     padding: 60px 20px;
     text-align: center;
 }
-
 .banner::before {
     content: '';
     position: absolute;
@@ -26,25 +23,19 @@ body {
     background: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
-
 .banner h2 {
     position: relative;
     z-index: 2;
     font-size: 36px; /* Larger banner heading */
 }
-
 .banner p {
     position: relative;
     z-index: 2;
     font-size: 20px; /* Larger banner text */
 }
-
 /* Desktop Styles */
 @media (min-width: 600px) {
-  
     .banner {
         padding: 120px 20px;
     }
-
-  
 }

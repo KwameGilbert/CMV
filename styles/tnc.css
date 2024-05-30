@@ -5,7 +5,6 @@ body {
     padding: auto;
     color: #333;
 }
-
 .container {
     max-width: 85%;
     margin: 100px auto;
@@ -14,27 +13,22 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-
 h1 {
     text-align: center;
     margin-bottom: 20px;
 }
-
 h2 {
     color: #3bb75e;
     margin-top: 20px;
 }
-
 p {
     line-height: 1.6;
     margin-bottom: 10px;
 }
-
 .container a {
     color: #3bb75e;
     text-decoration: none;
 }
-
 .container a:hover {
     text-decoration: underline;
 }
