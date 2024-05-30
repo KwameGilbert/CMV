@@ -8,7 +8,7 @@ function payWithPaystack(event) {
     let email = document.getElementById('email').value;
     let amount = votes_amount_float * 100; // Paystack expects amount in kobo (or smallest currency unit)
 
-    
+
     let handler = PaystackPop.setup({
         //Replace with your public key
         //key: 'pk_live_04349580eea795597762b0e6242736891e6a0faa',
@@ -17,7 +17,7 @@ function payWithPaystack(event) {
         amount: amount,
         currency: 'GHS',
         //split_code: 'SPL_ckaKku9FKI', //FADSA Split code
-        split_code: 'SPL_viZ8WmJXuZ', //FDSA Split code TEST
+        split_code: 'SPL_viZ8WmJXuZ', 
         ref: 'Gili' + Math.floor((Math.random() * 1000000000) + 1), // Generate a unique reference
 
         onClose: function () {
