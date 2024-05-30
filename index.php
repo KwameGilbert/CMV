@@ -17,6 +17,8 @@
     <meta property="og:url" content="https://www.countmyvote.great-site.net">
     <meta property="og:type" content="website">
 
+
+    
      <!-- Optional: Twitter Card Meta Tags for better Twitter integration -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Count My Vote">
