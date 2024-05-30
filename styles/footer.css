@@ -1,0 +1,95 @@
+/* Footer Styles */
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-about,
+.footer-pages,
+.footer-contact,
+.footer-social {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+.footer-about{
+    text-align: justify;
+}
+
+.footer-about h2 {
+    color: #ffa500;
+    margin-right: 20px;
+    text-align: justify;
+}
+
+.footer-about p{
+    line-height: 1.5;
+}
+
+.footer-contact {
+    text-align: left;
+}
+
+.footer-pages ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-pages li {
+    margin-bottom: 10px;
+}
+
+.footer-pages a,
+.footer-contact a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-pages a:hover,
+.footer-contact a:hover {
+    color: #ffa500;
+}
+
+.footer-contact p,
+.footer-social a {
+    margin-bottom: 10px;
+}
+
+.footer-social a img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.footer-bottom {
+    background-color: #111;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-pages,
+    .footer-contact,
+    .footer-social {
+        min-width: 100%;
+        text-align: left;
+    }
+}

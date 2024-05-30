@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML FORMS ASSIGNMENT 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            text-align: center;
+            color: teal;
+            font-size: 17px;
+            background-color: white;
+            padding: 10px;
+        }
+        main {
+            background-color: teal;
+            color: white;
+            padding: 20px;
+        }
+        form {
+            margin: 0 auto;
+            width: 50%;
+        }
+        label {
+            display: inline-block;
+            margin-top: 10px;
+        }
+        input, textarea, select {
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+        .inline-label {
+            display: inline;
+            margin-left: 10px;
+        }
+        .inline-input {
+            display: inline;
+            margin-left: 5px;
+        }
+        .submit-btn {
+            margin-left: 440px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><u>STUDENT REGISTRATION FORM</u></h1>
+    </header>
+    <main>
+        <form>
+            <label>FIRST NAME</label>
+            <input type="text" name="firstname" maxlength="30">
+            <label>(max 30 characters a-z and A-Z)</label>
+            <br>
+            <label>LAST NAME</label>
+            <input type="text" name="lastname" maxlength="30">
+            <label>(max 30 characters a-z and A-Z)</label>
+            <br>
+            <label>DATE OF BIRTH</label>
+            <input type="date" name="dob">
+            <br>
+            <label>EMAIL ID</label>
+            <input type="email" name="email">
+            <br>
+            <label>MOBILE NUMBER</label>
+            <input type="tel" name="mobile" pattern="\d{10}">
+            <label>(10 digit number)</label>
+            <br>
+            <label>GENDER</label>
+            <label class="inline-label">Male</label>
+            <input class="inline-input" type="radio" id="Male" value="Male" name="gender">
+            <label class="inline-label">Female</label>
+            <input class="inline-input" type="radio" id="Female" value="Female" name="gender">
+            <br>
+            <label>ADDRESS</label>
+            <textarea id="ADDRESS" rows="3" cols="30"></textarea>
+            <br>
+            <label>CITY</label>
+            <input type="text" name="city" maxlength="30">
+            <label>(max 30 characters a-z and A-Z)</label>
+            <br>
+            <label>PIN CODE</label>
+            <input type="text" name="pincode" pattern="\d{6}">
+            <label>(6 digit number)</label>
+            <br>
+            <label>STATE</label>
+            <input type="text" name="state" maxlength="30">
+            <label>(max 30 characters a-z and A-Z)</label>
+            <br>
+            <label>COUNTRY</label>
+            <input type="text" name="country">
+            <br>
+            <label>HOBBIES</label>
+            <label class="inline-label">Drawing</label>
+            <input class="inline-input" type="checkbox" id="Drawing" name="hobbies" value="Drawing">
+            <label class="inline-label">Singing</label>
+            <input class="inline-input" type="checkbox" id="Singing" name="hobbies" value="Singing">
+            <label class="inline-label">Dancing</label>
+            <input class="inline-input" type="checkbox" id="Dancing" name="hobbies" value="Dancing">
+            <label class="inline-label">Sketching</label>
+            <input class="inline-input" type="checkbox" id="Sketching" name="hobbies" value="Sketching">
+            <label class="inline-label">Others</label>
+            <input class="inline-input" type="checkbox" id="Others" name="hobbies" value="Others">
+            <input class="inline-input" type="text" name="otherHobbies">
+            <br>
+            <label>QUALIFICATION</label>
+            <br>
+            <label>SI.No. Examination</label>
+            <label class="inline-label">Board</label>
+            <label class="inline-label">Percentage</label>
+            <label class="inline-label">Year of Passing</label>
+            <br>
+            <label class="inline-label">1</label>
+            <label class="inline-label">Class X</label>
+            <input class="inline-input" type="text" name="classX_board">
+            <input class="inline-input" type="text" name="classX_percentage">
+            <input class="inline-input" type="text" name="classX_yop">
+            <br>
+            <label class="inline-label">2</label>
+            <label class="inline-label">Class XII</label>
+            <input class="inline-input" type="text" name="classXII_board">
+            <input class="inline-input" type="text" name="classXII_percentage">
+            <input class="inline-input" type="text" name="classXII_yop">
+            <br>
+            <label class="inline-label">3</label>
+            <label class="inline-label">Graduation</label>
+            <input class="inline-input" type="text" name="grad_board">
+            <input class="inline-input" type="text" name="grad_percentage">
+            <input class="inline-input" type="text" name="grad_yop">
+            <br>
+            <label class="inline-label">4</label>
+            <label class="inline-label">Masters</label>
+            <input class="inline-input" type="text" name="masters_board">
+            <input class="inline-input" type="text" name="masters_percentage">
+            <input class="inline-input" type="text" name="masters_yop">
+            <br>
+            <label>COURSES APPLIED FOR</label>
+            <br>
+            <label class="inline-label">BCA</label>
+            <input class="inline-input" type="radio" id="BCA" value="BCA" name="course">
+            <label class="inline-label">B.Com</label>
+            <input class="inline-input" type="radio" id="BCom" value="B.Com" name="course">
+            <label class="inline-label">B.Sc</label>
+            <input class="inline-input" type="radio" id="BSc" value="B.Sc" name="course">
+            <label class="inline-label">B.A</label>
+            <input class="inline-input" type="radio" id="BA" value="BA" name="course">
+            <br>
+            <button class="submit-btn" type="submit">SUBMIT</button>
+            <button type="reset">RESET</button>
+        </form>
+    </main>
+</body>
+</html>

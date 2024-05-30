@@ -1,0 +1,21 @@
+/* Main content styles */
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-250px);
+    }
+
+    .toggle-btn {
+        display: block;
+    }
+
+    .main-content {
+        padding: 20px 40px;
+    }
+}
