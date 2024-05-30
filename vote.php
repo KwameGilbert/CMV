@@ -56,12 +56,12 @@ $cost_per_vote = $event['cost_per_vote'];
             <h2>Please fill vote form</h2>
             <input type="hidden" name="contestant_id" value="<?= htmlspecialchars($contestant_id) ?>">
             <div class="form-group">
-                <label for="first-name">First Name:</label>
-                <input type="text" id="first-name" name="first-name" required>
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" required>
             </div>
             <div class="form-group">
-                <label for="last-name">Last Name:</label>
-                <input type="text" id="last-name" name="last-name" required>
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" required>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>

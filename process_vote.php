@@ -2,8 +2,8 @@
 //process_vote.php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $contestant_id = $_POST['contestant_id'];
-    $first_name = $_POST['first-name'];
-    $last_name = $_POST['last-name'];
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
     $email = $_POST['email'];
     $votes = $_POST['votes'];
     $reference = $_POST['reference'];
