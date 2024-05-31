@@ -124,24 +124,7 @@ $conn->close();
             <p><b>Categories:</b><?= $event['num_categories']; ?></p>
             <p><b>Contestants:</b><?= $event['num_contestants']; ?></p>
         </div>
-        <?php endforeach; ?>
-        <div class="stats">
-            <div class="stat">
-                <h4>Votes Today</h4>
-                <p><?= $votes_stats['votes_today']; ?></p>
-            </div>
-            <div class="stat">
-                <h4>Votes Yesterday</h4>
-                <p><?= $votes_stats['votes_yesterday']; ?></p>
-            </div>
-            <div class="stat">
-                <h4>Votes This Month</h4>
-                <p><?= $votes_stats['votes_this_month']; ?></p>
-            </div>
-            <div class="stat">
-                <h4>Total Votes</h4>
-                <p><?= $votes_stats['votes_total']; ?></p>
-            </div>
+        
         </div>
         <div class="chart-container">
             <canvas id="votesChart"></canvas>

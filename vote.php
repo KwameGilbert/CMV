@@ -70,7 +70,7 @@ $cost_per_vote = $event['cost_per_vote'];
             <div class="form-group">
                 <label for="votes">Number of Votes (₵<?php echo $cost_per_vote?> per vote):</label>
                 <input type="number" id="votes" name="votes" min="1" required
-                    oninput="calculateTotal(<?php echo $cost_per_vote?>)">
+                    oninput="calculateTotal(<?php echo $cost_per_vote?>)" step="1" onkeydown="return event.keyCode !== 69 && event.keyCode !== 190 && event.keyCode !== 110" >
             </div>
             <div class="form-submit">
                 <h3>Total Amount: GH₵<span id="amount">0</span></h3>
@@ -78,7 +78,7 @@ $cost_per_vote = $event['cost_per_vote'];
             </div>
         </form>
     </div>
-
+    
     <!-- Success Notification box -->
     <div id="good_notification" class="good_notification">
         Successfully Voted
@@ -98,7 +98,6 @@ $cost_per_vote = $event['cost_per_vote'];
     <div id="transaction_error_notification" class="transaction_error_notification">
         Transaction verification failed. Please contact support.
     </div>
-
     <script src="https://js.paystack.co/v1/inline.js"></script>
     <script src="js/payment.js"></script>
     <?php
@@ -108,5 +107,4 @@ $cost_per_vote = $event['cost_per_vote'];
     <?php include 'footer.php' ?>
 
 </body>
-
 </html>

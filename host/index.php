@@ -105,8 +105,19 @@ while ($row = $categories_result->fetch_assoc()) {
         'equivalent_amount' => $row['total_votes'] * $row['cost_per_vote'],
     ];
 }
+
+// Fetch the current value of show_results from the events table
+$sql = "SELECT show_results FROM events WHERE host_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('i', $host_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+$show_results = $row['show_results'];
+
 $conn->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -128,6 +139,14 @@ $conn->close();
             <p><b>Categories:</b><?= $event['num_categories']; ?></p>
             <p><b>Contestants:</b><?= $event['num_contestants']; ?></p>
         </div>
+
+        <!--View Results Toggle Button-->
+        <div class="toggle-container">
+            <label for="show_results" class="show_results">Show Results : </label>
+            <input type="checkbox" id="toggle" class="toggle-checkbox" onchange="updateDatabase(this)" <?php if ($show_results) echo 'checked'; ?>>
+            <label for="toggle" class="toggle-label"></label>
+        </div>
+
         <?php endforeach; ?>        
         <div class="stats">
             <div class="stat">
@@ -207,5 +226,9 @@ $conn->close();
         });
     });
     </script>
+    <script>
+        const eventId = <?php echo json_encode($event_id); ?>;
+    </script>
+    <script src="js/toggle.js"></script>
 </body>
 </html>
