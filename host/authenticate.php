@@ -13,6 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $host = $result->fetch_assoc();
         $_SESSION['host_id'] = $host['id'];
         $_SESSION['event_id'] = $host['event_id'];
+        $_SESSION['username'] = $host['username'];
+        
         header("Location: dashboard.php");
     } else {
         echo "Invalid credentials. Please try again.";

@@ -7,6 +7,8 @@ if (!isset($_SESSION['host_id'])) {
 include '../database/db_connect.php';
 // Assume host ID is stored in session after login
 $host_id = $_SESSION['host_id'];
+$username = $_SESSION['username'];
+
 // Fetch host's events
 $events_sql = "SELECT event_id, event_name FROM events WHERE host_id = ?";
 $events_stmt = $conn->prepare($events_sql);
@@ -133,6 +135,9 @@ $conn->close();
     <br>
     <div class="container">
         <h1 class="header-title">Dashboard</h1>
+
+            <h2>Welcome <?php echo $username ?></h2>
+
         <?php foreach ($events as $event):?>
         <div class="event-demographics">
             <h3 class="event-title"><?= htmlspecialchars($event['event_name']); ?>:</h3>
