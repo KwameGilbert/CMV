@@ -9,6 +9,7 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param('i', $category_id);
 $stmt->execute();
 $contestants_result = $stmt->get_result(); // Use a different variable to store contestants result
+
 // Fetch category name based on category id passed
 $sql = "SELECT category_name FROM categories WHERE category_id = ?";
 $stmt = $conn->prepare($sql);
@@ -16,13 +17,22 @@ $stmt->bind_param('i', $category_id);
 $stmt->execute();
 $category_result = $stmt->get_result(); // Use a different variable to store category result
 $category_row = $category_result->fetch_assoc(); // Fetch the category name into a new variable
+
 // Fetch event name from based on event idate
-$event_sql = "SELECT event_name FROM events WHERE event_id = ?";
+$event_sql = "SELECT * FROM events WHERE event_id = ?";
 $event_stmt = $conn->prepare($event_sql);
 $event_stmt->bind_param('i', $event_id);
 $event_stmt->execute();
 $event_result = $event_stmt->get_result();
 $event = $event_result->fetch_assoc();
+
+//Show or Hide Show restults based on host preference
+if ($event['show_results'] == 1) {
+    $displayStyle = "block";
+} else {
+    $displayStyle = "none";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +52,8 @@ $event = $event_result->fetch_assoc();
     <div class="container">
         <div class="header-buttons">
             <a href="categories.php?event_id=<?= $event_id ?>" class="back-button">Back</a>
-            <button class="results-button" id="show-results" data-category-id="<?= $category_id ?>">Results</button>
+            <button class="results-button" id="show-results" data-category-id="<?= $category_id ?>" 
+            style="display:<?php echo $displayStyle; ?>" >Results</button>
         </div>
         <center>
             <h2 class="header-title">Contestants for <?= htmlspecialchars($category_row['category_name']); ?></h2>
