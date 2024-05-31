@@ -70,10 +70,10 @@ if ($event['show_results'] == 1) {
             $eventImage = 'includes/images/event_images/' . $event['event_name'] . '.jpg';
             // Check if category image exists, if not use event image
             if (!file_exists($contestantImage)) {
-                $contestantImage = $categoryImage;
-                if (!file_exists($categoryImage)) {
-                    $contestantImage = $eventImage;
-                }
+                $contestantImage = $categoryImage;  
+            }
+            if (!file_exists($categoryImage)) {
+                $contestantImage = $eventImage;
             }
             ?>
                 <img src="<?= $contestantImage ?>" alt="<?= htmlspecialchars($row['contestant_name']); ?>"

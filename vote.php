@@ -66,8 +66,12 @@ $result = $stmt->get_result();
             $eventImage = 'includes/images/event_images/' . $event_name . '.jpg';
             
             // Check if contestant image exists, if not use category image, if not use event image
+             // Check if category image exists, if not use event image
             if (!file_exists($contestantImage)) {
-                $contestantImage = file_exists($categoryImage) ? $categoryImage : $eventImage;
+                $contestantImage = $categoryImage; 
+            }
+            if (!file_exists($categoryImage)) {
+                $contestantImage = $eventImage;
             }
             ?>
             <img src="<?= htmlspecialchars($contestantImage); ?>" alt="<?= htmlspecialchars($contestant['contestant_name']); ?>" class="contestant-img">
