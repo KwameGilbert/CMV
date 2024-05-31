@@ -15,14 +15,30 @@ $stmt->execute();
 $result = $stmt->get_result();
 $contestant = $result->fetch_assoc();
 
-//Fetch cost per vote
-$event_sql = "SELECT cost_per_vote FROM events WHERE event_id = (SELECT event_id FROM categories WHERE category_id = (SELECT category_id FROM contestants WHERE contestant_id = ?))";
-$event_stmt = $conn->prepare($event_sql);
+// Fetch cost per vote
+$cost_per_vote_sql = "SELECT cost_per_vote FROM events WHERE event_id = (SELECT event_id FROM categories WHERE category_id = (SELECT category_id FROM contestants WHERE contestant_id = ?))";
+$event_stmt = $conn->prepare($cost_per_vote_sql);
 $event_stmt->bind_param('s', $contestant_id);
 $event_stmt->execute();
 $event_result = $event_stmt->get_result();
 $event = $event_result->fetch_assoc();
 $cost_per_vote = $event['cost_per_vote'];
+
+// Fetch event name based on event id
+$event_sql = "SELECT event_name, event_id FROM events WHERE event_id = (SELECT event_id FROM categories WHERE category_id = (SELECT category_id FROM contestants WHERE contestant_id = ?))";
+$event_stmt = $conn->prepare($event_sql);
+$event_stmt->bind_param('s', $contestant_id);
+$event_stmt->execute();
+$event_result = $event_stmt->get_result();
+$event = $event_result->fetch_assoc();
+$event_name = $event['event_name'];
+
+// Fetch categories based on event
+$sql = "SELECT * FROM categories WHERE event_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('i', $event['event_id']);
+$stmt->execute();
+$result = $stmt->get_result();
 ?>
 
 <!DOCTYPE html>
@@ -38,23 +54,32 @@ $cost_per_vote = $event['cost_per_vote'];
 </head>
 
 <body>
-    <?php include 'header.php' ?>
+    <?php include 'header.php'; ?>
 
     <div class="container">
 
         <div class="contestant-details">
-            <h3>Vote for <?= htmlspecialchars($contestant['contestant_name']) ?></h3>
-            <img src="includes/images/contestant_images/<?= htmlspecialchars($contestant['contestant_name']) ?>.jpg"
-                alt="<?= htmlspecialchars($contestant['contestant_name']) ?>" class="contestant-img">
+            <h3>Vote for <?= htmlspecialchars($contestant['contestant_name']); ?></h3>
+            <?php 
+            $contestantImage = 'includes/images/contestant_images/' . $contestant['contestant_name'] . '.jpg';
+            $categoryImage = 'includes/images/category_images/' . $contestant['category_name'] . '.jpg';
+            $eventImage = 'includes/images/event_images/' . $event_name . '.jpg';
+            
+            // Check if contestant image exists, if not use category image, if not use event image
+            if (!file_exists($contestantImage)) {
+                $contestantImage = file_exists($categoryImage) ? $categoryImage : $eventImage;
+            }
+            ?>
+            <img src="<?= htmlspecialchars($contestantImage); ?>" alt="<?= htmlspecialchars($contestant['contestant_name']); ?>" class="contestant-img">
             <div class="contestant-info">
-                <h2><?= htmlspecialchars($contestant['contestant_name']) ?></h2>
-                <p>Category: <?= htmlspecialchars($contestant['category_name']) ?></p>
+                <h2><?= htmlspecialchars($contestant['contestant_name']); ?></h2>
+                <p>Category: <?= htmlspecialchars($contestant['category_name']); ?></p>
             </div>
         </div>
 
         <form class="vote-form" id="paymentForm">
             <h2>Please fill vote form</h2>
-            <input type="hidden" name="contestant_id" value="<?= htmlspecialchars($contestant_id) ?>">
+            <input type="hidden" name="contestant_id" value="<?= htmlspecialchars($contestant_id); ?>">
             <div class="form-group">
                 <label for="first_name">First Name:</label>
                 <input type="text" id="first_name" name="first_name" required>
@@ -68,9 +93,9 @@ $cost_per_vote = $event['cost_per_vote'];
                 <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="votes">Number of Votes (₵<?php echo $cost_per_vote?> per vote):</label>
+                <label for="votes">Number of Votes (₵<?php echo $cost_per_vote; ?> per vote):</label>
                 <input type="number" id="votes" name="votes" min="1" required
-                    oninput="calculateTotal(<?php echo $cost_per_vote?>)" step="1" onkeydown="return event.keyCode !== 69 && event.keyCode !== 190 && event.keyCode !== 110" >
+                    oninput="calculateTotal(<?php echo $cost_per_vote; ?>)" step="1" onkeydown="return event.keyCode !== 69 && event.keyCode !== 190 && event.keyCode !== 110">
             </div>
             <div class="form-submit">
                 <h3>Total Amount: GH₵<span id="amount">0</span></h3>
@@ -78,7 +103,7 @@ $cost_per_vote = $event['cost_per_vote'];
             </div>
         </form>
     </div>
-    
+
     <!-- Success Notification box -->
     <div id="good_notification" class="good_notification">
         Successfully Voted
@@ -104,7 +129,7 @@ $cost_per_vote = $event['cost_per_vote'];
     $stmt->close();
     $conn->close();
     ?>
-    <?php include 'footer.php' ?>
+    <?php include 'footer.php'; ?>
 
 </body>
 </html>
