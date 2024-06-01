@@ -3,7 +3,11 @@
         <div class="footer-about">
             <h2>CountMyVote</h2>
             <p>
-                CountMyVote is an innovative electronic voting and ticketing platform designed to overcome the limitations of traditional manual voting systems and in-person ticket sales at events. Our platform ensures the confidentiality and security of voting and ticket purchasing processes. By eliminating geographical barriers, CountMyVote allows users and buyers to participate in voting and purchase tickets from anywhere, without the need for physical presence.
+                CountMyVote is an innovative electronic voting and ticketing platform designed to overcome the
+                limitations of traditional manual voting systems and in-person ticket sales at events. Our platform
+                ensures the confidentiality and security of voting and ticket purchasing processes. By eliminating
+                geographical barriers, CountMyVote allows users and buyers to participate in voting and purchase tickets
+                from anywhere, without the need for physical presence.
             </p>
         </div>
         <div class="footer-pages">
@@ -22,7 +26,7 @@
             <p>
                 <strong>WhatsApp/Phone:</strong><br>
                 <a target="_blank" href="http://wa.me/+233541436414">
-                     +233541436414
+                    +233541436414
                 </a><br>
                 <a target="_blank" href="wa.me/+233541436414">+233501045463</a><br><br>
             </p>
@@ -40,7 +44,8 @@
         </div>
         <div class="footer-social">
             <h3>Follow Us</h3>
-            <a href="#"><i class="ci ci-facebook ci-2x"></i><img src="includes/icons/Color/Facebook.svg" alt="Facebook"></a>
+            <a href="#"><i class="ci ci-facebook ci-2x"></i><img src="includes/icons/Color/Facebook.svg"
+                    alt="Facebook"></a>
             <a href="#"><img src="includes/icons/Color/Twitter.svg" alt="Twitter"></a>
             <a href="#"><img src="includes/icons/Color/Instagram.svg" alt="Instagram"></a>
             <a href="#"><img src="includes/icons/Color/LinkedIN.svg" alt="LinkedIn"></a>

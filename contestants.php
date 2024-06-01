@@ -33,9 +33,23 @@ if ($event['show_results'] == 1) {
     $displayStyle = "none";
 }
 
+function getImageExtension($path, $name) {
+    $extensions = ['.jpeg', '.jpg', '.png', '.gif']; // Add more image extensions if needed
+    foreach ($extensions as $extension) {
+        if (file_exists($path . $name . $extension)) {
+            return $extension;
+        }
+    }
+    return '.jpg'; // Default extension if no image found
+}
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,14 +60,15 @@ if ($event['show_results'] == 1) {
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/modal.css">
 </head>
+
 <body>
     <?php include 'header.php'; ?>
     <?php include 'banner.html'; ?>
     <div class="container">
         <div class="header-buttons">
             <a href="categories.php?event_id=<?= $event_id ?>" class="back-button">Back</a>
-            <button class="results-button" id="show-results" data-category-id="<?= $category_id ?>" 
-            style="display:<?php echo $displayStyle; ?>" >Results</button>
+            <button class="results-button" id="show-results" data-category-id="<?= $category_id ?>"
+                style="display:<?php echo $displayStyle; ?>">Results</button>
         </div>
         <center>
             <h2 class="header-title">Contestants for <?= htmlspecialchars($category_row['category_name']); ?></h2>
@@ -62,13 +77,16 @@ if ($event['show_results'] == 1) {
             <?php while ($row = $contestants_result->fetch_assoc()): ?>
             <div class="card">
                 <?php
-            //Path to contestants image
-            $contestantImage = 'includes/images/contestant_images/' . $row['contestant_name'] . '.jpg';
+           
+
+            // Path to contestants image
+            $contestantImage = 'includes/images/contestant_images/' . $row['contestant_name'] . getImageExtension('includes/images/contestant_images/', $row['contestant_name']);
             // Path to category image
-            $categoryImage = 'includes/images/category_images/' . $category_row['category_name'] . '.jpg';
+            $categoryImage = 'includes/images/category_images/' . $category_row['category_name'] . getImageExtension('includes/images/category_images/', $category_row['category_name']);
             // Path to event image
-            $eventImage = 'includes/images/event_images/' . $event['event_name'] . '.jpg';
-            // Check if contestant image exists and use,if not use category image if exists, if not use event image
+            $eventImage = 'includes/images/event_images/' . $event['event_name'] . getImageExtension('includes/images/event_images/', $event['event_name']);
+
+
             if (file_exists($contestantImage)) {
                 // Use contestant image if it exists
             } elseif (file_exists($categoryImage)) {
@@ -111,6 +129,7 @@ if ($event['show_results'] == 1) {
     <?php include 'footer.php'; ?>
     <script src="js/modal.js"></script>
 </body>
+
 </html>
 <?php
 $stmt->close();

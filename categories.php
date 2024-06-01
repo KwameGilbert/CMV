@@ -18,6 +18,7 @@ $result = $stmt->get_result();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,15 +28,16 @@ $result = $stmt->get_result();
     <link rel="stylesheet" href="styles/event & categories.css">
     <link rel="stylesheet" href="styles/footer.css">
 </head>
+
 <body>
-<?php include 'header.php' ?> 
-<?php include 'banner.html' ?>
+    <?php include 'header.php' ?>
+    <?php include 'banner.html' ?>
     <div class="container">
-    <a href="index.php" class="back-button">Back</a>
+        <a href="index.php" class="back-button">Back</a>
         <h1 class="header-title">Select a Category</h1>
         <div class="cards">
             <?php while ($cat_results = $result->fetch_assoc()): ?>
-                <div class="card">
+            <div class="card">
                 <?php
             // Path to category image
             $categoryImage = 'includes/images/category_images/' . $cat_results['category_name'] . '.jpg';
@@ -46,17 +48,19 @@ $result = $stmt->get_result();
                 $categoryImage = $eventImage;
             }
             ?>
-                    <img src="<?= $categoryImage ?>" alt="<?= $cat_results['category_name'] ?>" class="card-img">
-                    <div class="card-body">
-                        <h5 class="card-title"><?= $cat_results['category_name'] ?></h5>
-                        <a href="contestants.php?category_id=<?= $cat_results['category_id'] ?>&event_id=<?= $event_id ?>" class="card-link">View Contestants</a>
-                    </div>
+                <img src="<?= $categoryImage ?>" alt="<?= $cat_results['category_name'] ?>" class="card-img">
+                <div class="card-body">
+                    <h5 class="card-title"><?= $cat_results['category_name'] ?></h5>
+                    <a href="contestants.php?category_id=<?= $cat_results['category_id'] ?>&event_id=<?= $event_id ?>"
+                        class="card-link">View Contestants</a>
                 </div>
+            </div>
             <?php endwhile; ?>
         </div>
     </div>
-<?php include 'footer.php' ?>
+    <?php include 'footer.php' ?>
 </body>
+
 </html>
 <?php
 $conn->close();

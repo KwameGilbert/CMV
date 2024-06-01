@@ -39,6 +39,20 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param('i', $event['event_id']);
 $stmt->execute();
 $result = $stmt->get_result();
+
+//Contestant image extension
+function getImageExtension($path, $name) {
+    $extensions = ['.jpeg', '.jpg', '.png', '.gif']; // Add more image extensions if needed
+    foreach ($extensions as $extension) {
+        if (file_exists($path . $name . $extension)) {
+            return $extension;
+        }
+    }
+    return '.jpg'; // Default extension if no image found
+}
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -61,23 +75,26 @@ $result = $stmt->get_result();
         <div class="contestant-details">
             <h3>Vote for <?= htmlspecialchars($contestant['contestant_name']); ?></h3>
             <?php 
-            $contestantImage = 'includes/images/contestant_images/' . $contestant['contestant_name'] . '.jpg';
-            $categoryImage = 'includes/images/category_images/' . $contestant['category_name'] . '.jpg';
-            $eventImage = 'includes/images/event_images/' . $event_name . '.jpg';
-            
-            // Check if contestant image exists, if not use category image, if not use event image
-             // Check if category image exists, if not use event image
-             if (file_exists($contestantImage)) {
-                // Use contestant image if it exists
-            } elseif (file_exists($categoryImage)) {
-                // Use category image if contestant image doesn't exist
-                $contestantImage = $categoryImage;
-            } else {
-                // Use event image if both contestant and category images don't exist
-                $contestantImage = $eventImage;
-            }
+           // Path to contestants image
+           $contestantImage = 'includes/images/contestant_images/' . $contestant['contestant_name'] . getImageExtension('includes/images/contestant_images/', $contestant['contestant_name']);
+           // Path to category image
+           $categoryImage = 'includes/images/category_images/' . $contestant['category_name'] . getImageExtension('includes/images/category_images/', $contestant['category_name']);
+           // Path to event image
+           $eventImage = 'includes/images/event_images/' . $event['event_name'] . getImageExtension('includes/images/event_images/', $event['event_name']);
+
+
+           if (file_exists($contestantImage)) {
+               // Use contestant image if it exists
+           } elseif (file_exists($categoryImage)) {
+               // Use category image if contestant image doesn't exist
+               $contestantImage = $categoryImage;
+           } else {
+               // Use event image if both contestant and category images don't exist
+               $contestantImage = $eventImage;
+           }
             ?>
-            <img src="<?= htmlspecialchars($contestantImage); ?>" alt="<?= htmlspecialchars($contestant['contestant_name']); ?>" class="contestant-img">
+            <img src="<?= htmlspecialchars($contestantImage); ?>"
+                alt="<?= htmlspecialchars($contestant['contestant_name']); ?>" class="contestant-img">
             <div class="contestant-info">
                 <h2><?= htmlspecialchars($contestant['contestant_name']); ?></h2>
                 <p>Category: <?= htmlspecialchars($contestant['category_name']); ?></p>
@@ -102,7 +119,8 @@ $result = $stmt->get_result();
             <div class="form-group">
                 <label for="votes">Number of Votes (₵<?php echo $cost_per_vote; ?> per vote):</label>
                 <input type="number" id="votes" name="votes" min="1" required
-                    oninput="calculateTotal(<?php echo $cost_per_vote; ?>)" step="1" onkeydown="return event.keyCode !== 69 && event.keyCode !== 190 && event.keyCode !== 110">
+                    oninput="calculateTotal(<?php echo $cost_per_vote; ?>)" step="1"
+                    onkeydown="return event.keyCode !== 69 && event.keyCode !== 190 && event.keyCode !== 110">
             </div>
             <div class="form-submit">
                 <h3>Total Amount: GH₵<span id="amount">0</span></h3>
@@ -139,4 +157,5 @@ $result = $stmt->get_result();
     <?php include 'footer.php'; ?>
 
 </body>
+
 </html>
