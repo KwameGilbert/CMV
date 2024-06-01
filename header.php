@@ -22,7 +22,7 @@ $domain = "https://www.countmyvote.great-site.net/";
         <a href="<?php echo $domain ?>index.php">Events</a>
         <a href="#">Nominee Filling</a>
         <a href="<?php echo $domain ?>tnc.php">Terms and Conditions</a>
-        <a href="#">Contact Us</a>
+        <a href="<?php echo $domain ?>contact_us.php">Contact Us</a>
     </nav>
     <script src="<?php echo $domain ?>js/header.js"></script>
 </header>

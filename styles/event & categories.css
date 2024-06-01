@@ -32,6 +32,8 @@
 .back-button:hover {
     background-color: #222222b2;
 }
+
+
 .cards {
     display: flex;
     flex-wrap: wrap;

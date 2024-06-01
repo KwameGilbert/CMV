@@ -24,7 +24,9 @@
     <?php include 'events.php' ?>
     <!-- Your content goes here -->
     <!-- Footer -->
-    <?php include 'footer.php' ?>
+  
+  <?php include 'footer.php' ?>
+  
 
 </body>
 

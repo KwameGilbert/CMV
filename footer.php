@@ -21,27 +21,29 @@
                 <li><a href="<?php echo $domain ?>tnc.php">Terms and Conditions</a></li>
             </ul>
         </div>
-        <div class="footer-contact">
-            <h3>Contact Info</h3>
-            <p>
-                <strong>WhatsApp/Phone:</strong><br>
-                <a target="_blank" href="http://wa.me/+233541436414">
-                    +233541436414
-                </a><br>
-                <a target="_blank" href="wa.me/+233541436414">+233501045463</a><br><br>
-            </p>
-            <p>
-                <strong>Email:</strong><br>
-                <a href="mailto:kwamegilbert1114@gmail.com">
-                    kwamegilbert1114@gmail.com
-                </a>
-                <br>
-            </p>
-            <p>
-                <strong>Address:</strong><br>
-                AAMUSTED-K, Kumasi, Tanoso. Sunyani Road<br>
-            </p>
-        </div>
+        <a href="#footer-contact">
+            <div class="footer-contact">
+                <h3>Contact Info</h3>
+                <p>
+                    <strong>WhatsApp/Phone:</strong><br>
+                    <a target="_blank" href="http://wa.me/+233541436414">
+                        +233541436414
+                    </a><br>
+                    <a target="_blank" href="wa.me/+233541436414">+233501045463</a><br><br>
+                </p>
+                <p>
+                    <strong>Email:</strong><br>
+                    <a href="mailto:kwamegilbert1114@gmail.com">
+                        kwamegilbert1114@gmail.com
+                    </a>
+                    <br>
+                </p>
+                <p>
+                    <strong>Address:</strong><br>
+                    AAMUSTED-K, Kumasi, Tanoso. Sunyani Road<br>
+                </p>
+            </div>
+        </a>
         <div class="footer-social">
             <h3>Follow Us</h3>
             <a href="#"><i class="ci ci-facebook ci-2x"></i><img src="includes/icons/Color/Facebook.svg"
