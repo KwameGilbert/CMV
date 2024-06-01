@@ -68,11 +68,14 @@ if ($event['show_results'] == 1) {
             $categoryImage = 'includes/images/category_images/' . $category_row['category_name'] . '.jpg';
             // Path to event image
             $eventImage = 'includes/images/event_images/' . $event['event_name'] . '.jpg';
-            // Check if category image exists, if not use event image
-            if (!file_exists($contestantImage)) {
-                $contestantImage = $categoryImage;  
-            }
-            if (!file_exists($categoryImage)) {
+            // Check if contestant image exists and use,if not use category image if exists, if not use event image
+            if (file_exists($contestantImage)) {
+                // Use contestant image if it exists
+            } elseif (file_exists($categoryImage)) {
+                // Use category image if contestant image doesn't exist
+                $contestantImage = $categoryImage;
+            } else {
+                // Use event image if both contestant and category images don't exist
                 $contestantImage = $eventImage;
             }
             ?>

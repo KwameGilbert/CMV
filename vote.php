@@ -67,10 +67,13 @@ $result = $stmt->get_result();
             
             // Check if contestant image exists, if not use category image, if not use event image
              // Check if category image exists, if not use event image
-            if (!file_exists($contestantImage)) {
-                $contestantImage = $categoryImage; 
-            }
-            if (!file_exists($categoryImage)) {
+             if (file_exists($contestantImage)) {
+                // Use contestant image if it exists
+            } elseif (file_exists($categoryImage)) {
+                // Use category image if contestant image doesn't exist
+                $contestantImage = $categoryImage;
+            } else {
+                // Use event image if both contestant and category images don't exist
                 $contestantImage = $eventImage;
             }
             ?>
