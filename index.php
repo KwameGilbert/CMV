@@ -19,14 +19,14 @@
 </head>
 
 <body>
+
     <?php include 'header.php' ?>
     <?php include 'banner.html' ?>
     <?php include 'events.php' ?>
     <!-- Your content goes here -->
+  
     <!-- Footer -->
-  
   <?php include 'footer.php' ?>
-  
 
 </body>
 

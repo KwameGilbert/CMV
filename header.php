@@ -6,7 +6,7 @@ if ($_SERVER['HTTPS'] != "on") {
     exit();
 }
 
-$domain = "https://www.countmyvote.great-site.net/";
+$domain = "http://localhost/VOTING/";
 ?>
 
 <header>

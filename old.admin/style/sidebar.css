@@ -1,0 +1,62 @@
+/* CSS for Sidebar */
+.sidebar {
+    background-color: #212a33; /* Darker blue */
+    color: #fff;
+    padding: 20px;
+    width: 200px;
+    height: calc(100vh - 60px);
+    position: fixed;
+    top: 60px; /* Adjust for header height */
+    left: 0;
+    overflow-y: auto; /* Add scroll if needed */
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+    border-bottom: 1px solid #38444d; /* Add a border between menu items */
+}
+
+.menu li {
+    padding: 10px 0; /* Adjust padding to 10px top and bottom, 0 left and right */
+    width: 100%; /* Make the menu items span the whole width of the sidebar */
+    border-bottom: 1px solid #38444d; /* Add a border between menu items */
+}
+
+.menu li a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 40px; /* Set the height of menu items to 40px */
+    padding: 0 20px; /* Add padding to create space around the text */
+}
+
+.menu li a i {
+    margin-right: 10px; /* Add space between icon and text */
+}
+
+.menu li a:hover {
+    background-color: #f48024; /* Change the background on hover */
+    border-radius: 5px;
+}
+
+/*Log out button style*/
+.menu li.logout {
+    margin-top: auto; /* Push the logout button to the bottom */
+}
+
+.menu li.logout a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 40px; /* Set the height of the logout button */
+    padding: 0 20px; /* Add padding to create space around the text */
+}
+
+.menu li.logout a i {
+    margin-right: 10px; /* Add space between icon and text */
+}
+
