@@ -1,5 +1,0 @@
-Session ID: ATUid_f5bc2ddcca59e5e4504f44736b0d0963, Service Code: *384*47377#, Phone Number: +233541436414, Text: 
-Session ID: ATUid_f5bc2ddcca59e5e4504f44736b0d0963, Service Code: *384*47377#, Phone Number: +233541436414, Text: 1
-Session ID: ATUid_f5bc2ddcca59e5e4504f44736b0d0963, Service Code: *384*47377#, Phone Number: +233541436414, Text: 1*456123
-Session ID: ATUid_7d1b93f7a471e51afdcdfcf835d90b4e, Service Code: *384*47377#, Phone Number: +233541436414, Text: 
-Session ID: ATUid_7d1b93f7a471e51afdcdfcf835d90b4e, Service Code: *384*47377#, Phone Number: +233541436414, Text: 2

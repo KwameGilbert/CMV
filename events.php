@@ -9,7 +9,7 @@ $events = [];
 while ($row = $result->fetch_assoc()) {
     $events[] = $row;
 }
-// Close database connection
+
 $conn->close();
 ?>
 <div class="container">
@@ -27,8 +27,9 @@ $conn->close();
                 <p><strong><?= htmlspecialchars($event['event_host']) ?></strong></p>
                 <!--<p><strong>Date:</strong> <?= htmlspecialchars($event['event_date']) ?></p>-->
                 <!--<p><?= htmlspecialchars($event['description']) ?></p>-->
-                <a href="categories.php?event_id=<?= htmlspecialchars($event['event_id']) ?>" class="card-link">Select
-                    Event</a>
+                <a href="categories.php?event_id=<?= htmlspecialchars($event['event_id']) ?>" class="card-link">
+                    Select Event
+                </a>
             </div>
         </div>
         <?php endforeach; ?>

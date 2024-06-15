@@ -11,13 +11,10 @@ function payWithPaystack(event) {
 
     let handler = PaystackPop.setup({
         //Replace with your public key
-        //key: 'pk_live_04349580eea795597762b0e6242736891e6a0faa',
-        key: 'pk_test_3a243aa0a24572b40ef92531641e5809cd500d3b',
+        key: 'pk_live_04349580eea795597762b0e6242736891e6a0faa',
         email: email,
         amount: amount,
         currency: 'GHS',
-        //split_code: 'SPL_ckaKku9FKI', //FADSA Split code
-        split_code: 'SPL_viZ8WmJXuZ', 
         ref: 'Gili' + Math.floor((Math.random() * 1000000000) + 1), // Generate a unique reference
 
         onClose: function () {

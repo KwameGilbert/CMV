@@ -20,8 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
     // Your secret key
-    //curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: Bearer sk_live_a212cee90c9ce7e37ae5179b098e5b813e0d6daf']);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: Bearer sk_test_b6d59ef887c4812d93e4c581727f75b45254824a']);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: Bearer sk_live_a212cee90c9ce7e37ae5179b098e5b813e0d6daf']);
+    //curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: Bearer sk_test_b6d59ef887c4812d93e4c581727f75b45254824a']);
     $response = curl_exec($ch);
     curl_close($ch);
 

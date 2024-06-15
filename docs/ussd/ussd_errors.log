@@ -1,0 +1,48 @@
+2024-06-15 08:07:00: Access denied for user 'gugyasoj_voting'@'localhost' (using password: YES)
+2024-06-15 08:07:43: Access denied for user 'gugyasoj_voting'@'localhost' (using password: YES)
+2024-06-15 08:09:26: Received data: {"sessionID":"2005506191900168","userID":"USSD_DOCUMENTATION","newSession":true,"msisdn":"233271231234","userData":"*928*","network":"AIRTELTIGO"}
+2024-06-15 08:09:39: Received data: {"sessionID":"2005506191900168","userID":"USSD_DOCUMENTATION","newSession":true,"msisdn":"233271231234","userData":"1","network":"AIRTELTIGO"}
+2024-06-15 08:09:52: Received data: {"sessionID":"2005506191900168","userID":"USSD_DOCUMENTATION","newSession":true,"msisdn":"233271231234","userData":"1HS95","network":"AIRTELTIGO"}
+2024-06-15 08:10:09: Received data: {"sessionID":"2005506191900168","userID":"USSD_DOCUMENTATION","newSession":true,"msisdn":"233271231234","userData":"1HD","network":"AIRTELTIGO"}
+2024-06-15 08:27:17: Received data: {"sessionID":"2005506191900168","userID":"USSD_DOCUMENTATION","newSession":true,"msisdn":"233271231234","userData":"1FS28","network":"AIRTELTIGO"}
+2024-06-15 08:27:47: Received data: {"sessionID":"2005506191900168","userID":"USSD_DOCUMENTATION","newSession":true,"msisdn":"233271231234","userData":"*928*","network":"AIRTELTIGO"}
+2024-06-15 08:28:05: Received data: {"sessionID":"2005506191900168","userID":"USSD_DOCUMENTATION","newSession":true,"msisdn":"233271231234","userData":"1","network":"AIRTELTIGO"}
+2024-06-15 08:28:14: Received data: {"sessionID":"2005506191900168","userID":"USSD_DOCUMENTATION","newSession":true,"msisdn":"233271231234","userData":"1FS12","network":"AIRTELTIGO"}
+2024-06-15 08:28:26: Received data: {"sessionID":"2005506191900168","userID":"USSD_DOCUMENTATION","newSession":true,"msisdn":"233271231234","userData":"12","network":"AIRTELTIGO"}
+2024-06-15 09:12:34: Received data: {"sessionID":"2005506191900168","userID":"USSD_DOCUMENTATION","newSession":true,"msisdn":"233271231234","userData":"*929*","network":"AIRTELTIGO"}
+2024-06-15 09:13:29: Received data: {"sessionID":"2005506191900168","userID":"USSD_DOCUMENTATION","newSession":true,"msisdn":"233271231234","userData":"*928*","network":"AIRTELTIGO"}
+2024-06-15 09:13:38: Received data: {"sessionID":"2005506191900168","userID":"USSD_DOCUMENTATION","newSession":true,"msisdn":"233271231234","userData":"1","network":"AIRTELTIGO"}
+2024-06-15 09:16:16: Received data: {"sessionID":"2005506191900168","userID":"USSD_DOCUMENTATION","newSession":true,"msisdn":"233271231234","userData":"*929*","network":"AIRTELTIGO"}
+2024-06-15 09:18:48: Received data: {"sessionID":"2005506191900168","userID":"USSD_DOCUMENTATION","newSession":true,"msisdn":"233271231234","userData":"*928*","network":"AIRTELTIGO"}
+2024-06-15 09:19:00: Received data: {"sessionID":"2005506191900168","userID":"USSD_DOCUMENTATION","newSession":true,"msisdn":"233271231234","userData":"1","network":"AIRTELTIGO"}
+2024-06-15 09:19:10: Received data: {"sessionID":"2005506191900168","userID":"USSD_DOCUMENTATION","newSession":true,"msisdn":"233271231234","userData":"FS23","network":"AIRTELTIGO"}
+2024-06-15 17:26:55: Executing SQL: SELECT 
+                c.contestant_name,
+                c.category_id,
+                c.contestant_id,
+                cat.event_id,
+                cat.cost_per_vote,
+                e.event_name
+            FROM 
+                contestants c
+            JOIN 
+                categories cat ON c.category_id = cat.category_id
+            JOIN 
+                events e ON cat.event_id = e.event_id
+            WHERE 
+                c.contestant_id = 'FS24'
+2024-06-15 17:35:22: Executing SQL: SELECT 
+                c.contestant_name,
+                c.category_id,
+                c.contestant_id,
+                cat.event_id,
+                cat.cost_per_vote,
+                e.event_name
+            FROM 
+                contestants c
+            JOIN 
+                categories cat ON c.category_id = cat.category_id
+            JOIN 
+                events e ON cat.event_id = e.event_id
+            WHERE 
+                c.contestant_id = 'FS05'

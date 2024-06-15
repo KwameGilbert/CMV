@@ -146,7 +146,7 @@ function getImageExtension($path, $name) {
 
     <!-- Transaction Error Notification Box -->
     <div id="transaction_error_notification" class="transaction_error_notification">
-        Transaction verification failed. Please contact support.
+        Transaction verification failed. There was an issue with your payment. Please try again. Please contact support.
     </div>
     <script src="https://js.paystack.co/v1/inline.js"></script>
     <script src="js/payment.js"></script>
