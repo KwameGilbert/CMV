@@ -8,28 +8,31 @@ function payWithPaystack(event) {
     let email = document.getElementById('email').value;
     let amount = votes_amount_float * 100; // Paystack expects amount in kobo (or smallest currency unit)
 
+    try {
+        let handler = PaystackPop.setup({
+            //Replace with your public key
+            key: 'pk_live_04349580eea795597762b0e6242736891e6a0faa',
+            email: email,
+            amount: amount,
+            currency: 'GHS',
+            ref: 'Gili' + Math.floor((Math.random() * 1000000000) + 1), // Generate a unique reference
 
-    let handler = PaystackPop.setup({
-        //Replace with your public key
-        key: 'pk_live_04349580eea795597762b0e6242736891e6a0faa',
-        email: email,
-        amount: amount,
-        currency: 'GHS',
-        ref: 'Gili' + Math.floor((Math.random() * 1000000000) + 1), // Generate a unique reference
+            onClose: function () {
+                alert('Payment cancelled.');
+            },
 
-        onClose: function () {
-            alert('Payment cancelled.');
-        },
-
-        callback: function (response) {
-            if (response.status === 'success') {
-                submitForm(response.reference);
-            } else {
-                showTransactionErrorNotification();
+            callback: function (response) {
+                if (response.status === 'success') {
+                    submitForm(response.reference);
+                } else {
+                    showTransactionErrorNotification();
+                }
             }
-        }
-    });
-    handler.openIframe();
+        });
+    } catch (error) {
+        console.error('PaystackPop.setup error:', error);
+        showTransactionErrorNotification();
+    }
 }
 
 function submitForm(reference) {
