@@ -46,3 +46,17 @@
                 events e ON cat.event_id = e.event_id
             WHERE 
                 c.contestant_id = 'FS05'
+2024-06-16 06:06:23: Failed to initiate transaction: {"status":false,"message":"Invalid key","meta":{"nextStep":"Ensure that the authorization header follows the format: \"Bearer YOUR_SECRET_KEY\". Ex. 'Authorization: Bearer sk_123456789'"},"type":"validation_error","code":"authorization_key"}
+2024-06-16 06:28:28: Failed to initiate transaction: {"status":false,"message":"Invalid key","meta":{"nextStep":"Ensure that the authorization header follows the format: \"Bearer YOUR_SECRET_KEY\". Ex. 'Authorization: Bearer sk_123456789'"},"type":"validation_error","code":"authorization_key"}
+2024-06-16 09:09:37: Payment initiation error: {"status":true,"message":"Charge attempted","data":{"reference":"x38jagnc4pdp9aa","status":"pay_offline","display_text":"Please complete the authorisation process by inputting your PIN on your mobile device"}}
+
+
+2024-06-16 09:42:30: Failed to initiate transaction: {"status":false,"message":"Charge attempted","data":{"reference":"nskg8ofievckufd","status":"failed","message":"Unable to process transaction"},"meta":{"nextStep":"The customer needs to escalate to Paystack either through the merchant or via our support channels."},"type":"api_error","code":"unprocessed_transaction"}
+
+
+2024-06-16 09:45:47: Payment initiation error: {"status":true,"message":"Charge attempted","data":{"reference":"257e9ywatoce9sg","status":"pay_offline","display_text":"Please complete the authorisation process by inputting your PIN on your mobile device"}}
+2024-06-16 11:04:02: Failed to initiate transaction: {"status":false,"message":"Invalid provider","meta":{"nextStep":"Ensure that the value(s) you're passing are valid."},"type":"validation_error","code":"invalid_params"}
+2024-06-16 11:04:17: Failed to initiate transaction: {"status":false,"message":"Invalid provider","meta":{"nextStep":"Ensure that the value(s) you're passing are valid."},"type":"validation_error","code":"invalid_params"}
+2024-06-16 11:04:29: Failed to initiate transaction: {"status":false,"message":"Invalid provider","meta":{"nextStep":"Ensure that the value(s) you're passing are valid."},"type":"validation_error","code":"invalid_params"}
+2024-06-16 11:39:41: Failed to initiate transaction: {"status":false,"message":"Invalid provider","meta":{"nextStep":"Ensure that the value(s) you're passing are valid."},"type":"validation_error","code":"invalid_params"}
+2024-06-16 12:01:38: Failed to initiate transaction: 
