@@ -1,3 +1,4 @@
 {
-    "livePreview.defaultPreviewPath": "/ass2.html"
+    "livePreview.defaultPreviewPath": "/ass2.html",
+    "codium.codeCompletion.enable": true
 }
