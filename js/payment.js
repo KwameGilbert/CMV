@@ -1,38 +1,40 @@
 document.getElementById('paymentForm').addEventListener('submit', payWithPaystack, false);
 
+
+
+
+
 function payWithPaystack(event) {
     event.preventDefault();
 
+    let contestant_id = document.getElementById('contestant_code').innerText;
     let votes_amount = document.getElementById('amount').innerText;
     let votes_amount_float = parseFloat(votes_amount);
     let email = document.getElementById('email').value;
-    let amount = votes_amount_float * 100; // Paystack expects amount in kobo (or smallest currency unit)
+    let amount = (votes_amount_float * 100) * 1.02; // Paystack expects amount in kobo (or smallest currency unit)
 
-    try {
-        let handler = PaystackPop.setup({
-            //Replace with your public key
-            key: 'pk_live_04349580eea795597762b0e6242736891e6a0faa',
-            email: email,
-            amount: amount,
-            currency: 'GHS',
-            ref: 'Gili' + Math.floor((Math.random() * 1000000000) + 1), // Generate a unique reference
 
-            onClose: function () {
-                alert('Payment cancelled.');
-            },
+    let handler = PaystackPop.setup({
+        //Replace with your public key
+        key: 'pk_test_3a243aa0a24572b40ef92531641e5809cd500d3b',
+        email: email,
+        amount: amount,
+        currency: 'GHS',
+        ref: contestant_id +' - Gili' + Math.floor((Math.random() * 1000000000) + 1), // Generate a unique reference
 
-            callback: function (response) {
-                if (response.status === 'success') {
-                    submitForm(response.reference);
-                } else {
-                    showTransactionErrorNotification();
-                }
+        onClose: function () {
+            alert('Payment cancelled.');
+        },
+
+        callback: function (response) {
+            if (response.status === 'success') {
+                submitForm(response.reference);
+            } else {
+                showTransactionErrorNotification();
             }
-        });
-    } catch (error) {
-        console.error('PaystackPop.setup error:', error);
-        showTransactionErrorNotification();
-    }
+        }
+    });
+    handler.openIframe();
 }
 
 function submitForm(reference) {

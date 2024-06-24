@@ -1,4 +1,6 @@
 <?php
+//categories.php
+
 $event_id = $_GET['event_id']; // Get the event ID from the URL
 // Database connection
 include 'database/db_connect.php';

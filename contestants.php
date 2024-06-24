@@ -43,9 +43,6 @@ function getImageExtension($path, $name) {
     return '.jpg'; // Default extension if no image found
 }
 
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,7 +74,6 @@ function getImageExtension($path, $name) {
             <?php while ($row = $contestants_result->fetch_assoc()): ?>
             <div class="card">
                 <?php
-           
 
             // Path to contestants image
             $contestantImage = 'includes/images/contestant_images/' . $row['contestant_name'] . getImageExtension('includes/images/contestant_images/', $row['contestant_name']);
@@ -85,7 +81,6 @@ function getImageExtension($path, $name) {
             $categoryImage = 'includes/images/category_images/' . $category_row['category_name'] . getImageExtension('includes/images/category_images/', $category_row['category_name']);
             // Path to event image
             $eventImage = 'includes/images/event_images/' . $event['event_name'] . getImageExtension('includes/images/event_images/', $event['event_name']);
-
 
             if (file_exists($contestantImage)) {
                 // Use contestant image if it exists

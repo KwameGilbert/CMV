@@ -54,7 +54,7 @@ try {
     }
 
     // Initialize or retrieve session state
-    if ($newSession && $userData=="*124") {
+    if ($newSession && $userData=="123") {
         $message = "Welcome to Count My Vote - GH, Kindly choose a service." .
                    "\n1. Vote" .
                    "\n2. View Results" .
@@ -113,7 +113,7 @@ try {
                     FROM contestants c
                     JOIN categories cat ON c.category_id = cat.category_id
                     JOIN events e ON cat.event_id = e.event_id
-                    WHERE c.contestant_id = ?";
+                    WHERE c.contestant_id = $contestantCode";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("s", $contestantCode);
             if (!$stmt->execute()) {
@@ -129,7 +129,7 @@ try {
                 $cost_per_vote = $contestant['cost_per_vote'];
                 $cost = $votes * $cost_per_vote;
 
-                $message = "Confirm voting for $name ($id) in category $category - $event with $votes votes costing $cost GHS. Reply with 1 to confirm.";
+                $message = "Confirm voting for $name - ($id) in category $category - $event with $votes votes costing $cost GHS. Reply with 1 to confirm.";
                 $continueSession = true;
                 $level = 4;
             } else {

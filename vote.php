@@ -97,6 +97,7 @@ function getImageExtension($path, $name) {
                 alt="<?= htmlspecialchars($contestant['contestant_name']); ?>" class="contestant-img">
             <div class="contestant-info">
                 <h2><?= htmlspecialchars($contestant['contestant_name']); ?></h2>
+                <h3 id="contestant_code">Contestant Code: <?= $contestant_id ?></h3> 
                 <p>Category: <?= htmlspecialchars($contestant['category_name']); ?></p>
             </div>
         </div>
@@ -124,7 +125,7 @@ function getImageExtension($path, $name) {
             </div>
             <div class="form-submit">
                 <h3>Total Amount: GH₵<span id="amount">0</span></h3>
-                <button type="submit" class="btn" onclick="payWithPaystack(event)">Submit</button>
+                <button type="submit" class="btn" onclick="payWithPaystack(event);">Submit</button>
             </div>
         </form>
     </div>

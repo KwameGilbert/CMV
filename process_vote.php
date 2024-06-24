@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
     // Your secret key
-    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: Bearer sk_test_b6d59ef887c4812d93e4c581727f75b45254824a']);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: Bearer sk_live_a212cee90c9ce7e37ae5179b098e5b813e0d6daf']);
     $response = curl_exec($ch);
     curl_close($ch);
 
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->bind_param('ssssis', $contestant_id, $first_name, $last_name, $email, $votes, $reference);
             $stmt->execute();
             $stmt->close();
-
+            
             // Update the votes count in the contestants table
             $sql = "UPDATE contestants SET votes = (SELECT SUM(votes) FROM votes WHERE contestant_id = ?) WHERE contestant_id = ?";
             $stmt = $conn->prepare($sql);

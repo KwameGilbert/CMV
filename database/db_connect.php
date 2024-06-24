@@ -1,6 +1,6 @@
 <?php
 // Database configuration
-$servername = "localhsot";
+$servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "voting_db";
