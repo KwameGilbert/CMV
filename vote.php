@@ -1,5 +1,5 @@
 <?php
-//vote.php
+// vote.php
 $contestant_id = $_GET['contestant_id'];
 
 // Database connection
@@ -40,7 +40,7 @@ $stmt->bind_param('i', $event['event_id']);
 $stmt->execute();
 $result = $stmt->get_result();
 
-//Contestant image extension
+// Contestant image extension
 function getImageExtension($path, $name) {
     $extensions = ['.jpeg', '.jpg', '.png', '.gif']; // Add more image extensions if needed
     foreach ($extensions as $extension) {
@@ -50,9 +50,6 @@ function getImageExtension($path, $name) {
     }
     return '.jpg'; // Default extension if no image found
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +68,6 @@ function getImageExtension($path, $name) {
     <?php include 'header.php'; ?>
 
     <div class="container">
-
         <div class="contestant-details">
             <h3>Vote for <?= htmlspecialchars($contestant['contestant_name']); ?></h3>
             <?php 
@@ -97,7 +93,9 @@ function getImageExtension($path, $name) {
                 alt="<?= htmlspecialchars($contestant['contestant_name']); ?>" class="contestant-img">
             <div class="contestant-info">
                 <h2><?= htmlspecialchars($contestant['contestant_name']); ?></h2>
-                <h3 id="contestant_code">Contestant Code: <?= $contestant_id ?></h3> 
+                <h3>Contestant Code: 
+                    <span id="contestantCode"><?= $contestant_id ?></span>
+                </h3> 
                 <p>Category: <?= htmlspecialchars($contestant['category_name']); ?></p>
             </div>
         </div>
@@ -105,6 +103,7 @@ function getImageExtension($path, $name) {
         <form class="vote-form" id="paymentForm">
             <h2>Please fill vote form</h2>
             <input type="hidden" name="contestant_id" value="<?= htmlspecialchars($contestant_id); ?>">
+            <input type="hidden" name="reference" value="<?= $contestant_id . '_' . time() ?>">
             <div class="form-group">
                 <label for="first_name">First Name:</label>
                 <input type="text" id="first_name" name="first_name" required>
@@ -130,25 +129,12 @@ function getImageExtension($path, $name) {
         </form>
     </div>
 
-    <!-- Success Notification box -->
-    <div id="good_notification" class="good_notification">
-        Successfully Voted
-    </div>
+    <!-- Notification boxes -->
+    <div id="good_notification" class="good_notification">Successfully Voted</div>
+    <div id="bad_notification" class="bad_notification">Error, something went wrong. Please try again or contact support.</div>
+    <div id="database_error_notification" class="database_error_notification">Database error. Please try again or contact support.</div>
+    <div id="transaction_error_notification" class="transaction_error_notification">Transaction verification failed. There was an issue with your payment. Please try again. Please contact support.</div>
 
-    <!-- Bad Notification Box -->
-    <div id="bad_notification" class="bad_notification">
-        Error, something went wrong. Please try again or contact support.
-    </div>
-
-    <!-- Database Error Notification Box -->
-    <div id="database_error_notification" class="database_error_notification">
-        Database error. Please try again or contact support.
-    </div>
-
-    <!-- Transaction Error Notification Box -->
-    <div id="transaction_error_notification" class="transaction_error_notification">
-        Transaction verification failed. There was an issue with your payment. Please try again. Please contact support.
-    </div>
     <script src="https://js.paystack.co/v1/inline.js"></script>
     <script src="js/payment.js"></script>
     <?php
@@ -158,5 +144,4 @@ function getImageExtension($path, $name) {
     <?php include 'footer.php'; ?>
 
 </body>
-
 </html>

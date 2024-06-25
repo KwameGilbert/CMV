@@ -1,13 +1,12 @@
 document.getElementById('paymentForm').addEventListener('submit', payWithPaystack, false);
 
 
-
-
-
 function payWithPaystack(event) {
     event.preventDefault();
 
-    let contestant_id = document.getElementById('contestant_code').innerText;
+    let contestant_id = document.getElementById("contestantCode").innerText;
+    let reference = contestant_id + '_Gili' + Math.floor((Math.random() * 1000000) + 1);
+    console.log(reference);
     let votes_amount = document.getElementById('amount').innerText;
     let votes_amount_float = parseFloat(votes_amount);
     let email = document.getElementById('email').value;
@@ -16,11 +15,12 @@ function payWithPaystack(event) {
 
     let handler = PaystackPop.setup({
         //Replace with your public key
-        key: 'pk_test_3a243aa0a24572b40ef92531641e5809cd500d3b',
+        key: 'pk_live_04349580eea795597762b0e6242736891e6a0faa',
+
         email: email,
         amount: amount,
         currency: 'GHS',
-        ref: contestant_id +' - Gili' + Math.floor((Math.random() * 1000000000) + 1), // Generate a unique reference
+        ref: reference, // Generate a unique reference
 
         onClose: function () {
             alert('Payment cancelled.');
